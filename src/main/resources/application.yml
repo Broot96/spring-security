@@ -1,0 +1,35 @@
+server:
+  port: 8000
+# TEST
+frontDomain: "http://localhost:5173"
+backDomain: "http://localhost:8000"
+dbDomain: "127.0.0.1:3306"
+
+spring:
+  profiles:
+    active: test
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+    url: jdbc:mysql://${dbDomain}/study_user?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+    username: study_user
+    password: "study"
+  #    url: jdbc:mysql://localhost:3306/wqproject?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+  #    username: root
+  #    password: 1234
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+jwt:
+  header: Authorization
+  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+  secret: TlqkfghGhWkrmfdLwhsa11txkdTlqkfghkdqndnjSWIdr01wlrkX3dms21fusDDkkdknrirkxdms2dmsFusLNIdklsvn283bsldkn93094fuckyouFuCKYOU1818mOthe2rfUck2RRA66ssh0LetlqKfroToRlWhcRkxdmsToRldnDJDdn12ksdn335kll1nksdklnSGHJSfkndknKLFkndkTid99930zhemGKDNtmTid22cnldjqTlZUwnjskD0usQhd3600qKerhtTLbdj
+  token-validity-in-seconds: 86400 # ttl (초)
