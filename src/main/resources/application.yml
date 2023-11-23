@@ -12,12 +12,10 @@ spring:
     serialization:
       fail-on-empty-beans: false
   datasource:
-    url: jdbc:mysql://${dbDomain}/study_user?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://${dbDomain}/study_db?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
     username: study_user
-    password: "study"
-  #    url: jdbc:mysql://localhost:3306/wqproject?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
-  #    username: root
-  #    password: 1234
+    password: study
+
   jpa:
     open-in-view: true
     hibernate:
