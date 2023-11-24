@@ -1,6 +1,7 @@
 package com.example.springsecurity.service;
 
 import com.example.springsecurity.constant.CustomUserDetails;
+import com.example.springsecurity.entity.Member;
 import com.example.springsecurity.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,8 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-        return null;
+        Member member = memberRepository.findByUserId(username)
+                .orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 유저입니다."));
+        return new CustomUserDetails(member);
     }
 }
