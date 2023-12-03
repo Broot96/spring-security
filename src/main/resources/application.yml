@@ -25,6 +25,10 @@ spring:
         format_sql: true
         show_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
+  data:
+    redis:
+      host: localhost
+      port: 9999
 
 jwt:
   header: Authorization

@@ -44,6 +44,17 @@ dependencies {
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
+
+    //Spring Data Redis dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    //assert dependencies
+    testImplementation "org.assertj:assertj-core:3.22.0"
+
+    //slf4j-api
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.7'
+
+
 }
 
 tasks.named('bootBuildImage') {
