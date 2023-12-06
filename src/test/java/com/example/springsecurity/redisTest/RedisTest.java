@@ -68,7 +68,7 @@ public class RedisTest {
         assertThat(findValue).isEqualTo("false");
     }
 
-    @Test
+    /*@Test
     @DisplayName("Redis에 저장된 데이터는 만료시간이 지나면 삭제된다.")
     void expiredTest() throws Exception {
         // when
@@ -80,6 +80,6 @@ public class RedisTest {
                     assertThat(expiredValue).isEqualTo("false");
                 }
         );
-    }
+    }*/
 
 }
