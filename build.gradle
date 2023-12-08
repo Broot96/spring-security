@@ -45,6 +45,9 @@ dependencies {
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
+    //spring rest doc dependencies
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+
     //Spring Data Redis dependencies
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
