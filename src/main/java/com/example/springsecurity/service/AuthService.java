@@ -34,10 +34,13 @@ public class AuthService {
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
-    public Member signup(MemberDTO memberDTO) {
+    public void signup(MemberDTO memberDTO) {
+        //회원가입시 DB에서 동일한Id가 존재하는지 확인
         if(memberRepository.findByUserId(memberDTO.getUserId()).orElse(null) != null) {
+            //존재한다면 null이 아닌 값이 반환되기 때문에 예외 발생
             throw new RuntimeException("이미 존재하는 Id입니다.");
         }
+        //예외가 발생하지 않았다면 멤버 생성
         Member member = Member.builder()
                 .userId(memberDTO.getUserId())
                 .email(memberDTO.getEmail())
@@ -45,7 +48,7 @@ public class AuthService {
                 .password(passwordEncoder.encode(memberDTO.getPassword()))
                 .role(Role.TEMP)
                 .build();
-        return memberRepository.save(member);
+        memberRepository.save(member);
     }
 
     public HashMap<String, Object> signin(LoginDTO loginDTO) throws EntityNotFoundException {
